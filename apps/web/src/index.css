@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-sans bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-display tracking-tight;
+    }
+}
+
+.sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-400 hover:bg-white/10 hover:text-white;
+}
+
+.sidebar-link.active {
+    @apply bg-white/10 text-white font-bold;
+}
+
+.stat-card {
+    @apply bg-white p-6 rounded-3xl shadow-sm border border-slate-100 flex flex-col gap-1;
+}
+
+.btn-action {
+    @apply flex items-center justify-center p-2 rounded-lg transition-all duration-200;
+}
+
+/* Simplified glass card without explicit backdrop filter if that was causing issues, or just standard CSS */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.floating-element {
+    /* filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1)); */
+}
+
+.gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-accent;
+}
+
+/* Restored classes for CategoryFilter */
+.slider-hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.category-pill {
+    @apply flex flex-col items-center justify-center p-6 rounded-3xl transition-all duration-300 cursor-pointer border-2 border-transparent glass-card min-w-[140px];
+}
+
+.category-pill.active {
+    @apply border-emerald-accent bg-emerald-500/10;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.category-pill:hover {
+    @apply -translate-y-2 border-primary/30 bg-primary/5;
+}
