@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cd apps/web && npm install && npm run build",
+    "build": "npm run build --workspace=web",
+    "vercel-build": "npm run build --workspace=web && mkdir -p dist && cp -r apps/web/dist/* dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
